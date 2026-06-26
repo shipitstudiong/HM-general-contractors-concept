@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HM General Contractors | Houston's Medical & Dental Construction Experts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Barlow:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0a1628;
+      --navy2:   #112240;
+      --blue:    #1a3a5c;
+      --sky:     #2d6a9f;
+      --accent:  #4a9fd4;
+      --white:   #ffffff;
+      --offwhite:#f8f9fb;
+      --cream:   #f0f4f8;
+      --muted:   #6b7a8d;
+      --text:    #1a2535;
+      --border:  #dde3ea;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ─────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,22,40,0.97);
+      backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 5%;
+      border-bottom: 1px solid rgba(74,159,212,0.15);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo .box {
+      width: 40px; height: 40px;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 800; font-size: 1rem; color: var(--white);
+      letter-spacing: 0.05em;
+    }
+    .nav-logo .name {
+      font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.9rem; color: var(--white); letter-spacing: 0.05em;
+      line-height: 1.2;
+    }
+    .nav-logo .sub { font-size: 0.65rem; color: var(--accent); font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; }
+
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: rgba(255,255,255,0.65);
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent) !important; color: var(--white) !important;
+      padding: 0.55rem 1.3rem; letter-spacing: 0.08em !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: #3d8fbe !important; }
+
+    /* ── HERO ────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 5% 5rem;
+      position: relative; overflow: hidden;
+      gap: 4rem;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 55%; height: 100%;
+      background: linear-gradient(135deg, var(--navy2) 0%, var(--blue) 100%);
+      clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(74,159,212,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(74,159,212,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-left { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(74,159,212,0.12);
+      border: 1px solid rgba(74,159,212,0.3);
+      padding: 0.4rem 1rem; margin-bottom: 2rem;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .hero-badge::before { content: '●'; font-size: 0.5rem; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .hero-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--white); line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .hero-headline em { font-style: italic; color: var(--accent); }
+
+    .hero-sub {
+      font-size: 1rem; color: rgba(255,255,255,0.65);
+      max-width: 480px; line-height: 1.75; margin-bottom: 2.5rem;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: var(--white);
+      padding: 0.9rem 2rem; font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; transition: background 0.2s, transform 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-primary:hover { background: #3d8fbe; transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.25); color: var(--white);
+      padding: 0.9rem 2rem; font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; transition: border-color 0.2s, color 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-right { position: relative; z-index: 1; }
+    .hero-img-stack { position: relative; }
+    .hero-img-main {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover;
+      display: block;
+    }
+    .hero-img-badge {
+      position: absolute; bottom: -1.5rem; left: -1.5rem;
+      background: var(--accent); padding: 1.2rem 1.8rem;
+      color: var(--white);
+    }
+    .hero-img-badge .num {
+      font-family: 'Barlow', sans-serif; font-size: 2.5rem; font-weight: 800;
+      line-height: 1; display: block;
+    }
+    .hero-img-badge .lbl { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.85; }
+
+    /* ── STATS ───────────────────────────────────── */
+    .stats {
+      background: var(--offwhite);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 3px solid var(--accent);
+    }
+    .stat { padding: 2.5rem 2rem; text-align: center; border-right: 1px solid var(--border); }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Barlow', sans-serif; font-size: 2.8rem;
+      font-weight: 800; color: var(--navy); line-height: 1; display: block;
+    }
+    .stat-lbl { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-top: 0.4rem; display: block; }
+
+    /* ── SECTIONS ────────────────────────────────── */
+    section { padding: 6rem 5%; }
+
+    .eyebrow {
+      font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.75rem; font-weight: 600;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--accent); display: block; }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--navy); line-height: 1.1; margin-bottom: 1.2rem;
+    }
+    .section-body { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 560px; }
+
+    /* ── ABOUT ───────────────────────────────────── */
+    .about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-img { position: relative; }
+    .about-img img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+    .about-img::after {
+      content: ''; position: absolute;
+      top: 1.5rem; left: -1.5rem; right: 1.5rem; bottom: -1.5rem;
+      border: 2px solid var(--accent); z-index: -1;
+    }
+    .about-tag {
+      position: absolute; bottom: 1.5rem; right: -1rem;
+      background: var(--navy); color: var(--white);
+      padding: 1rem 1.4rem; border-left: 3px solid var(--accent);
+    }
+    .about-tag .name { font-weight: 600; font-size: 0.9rem; }
+    .about-tag .role { font-size: 0.68rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.2rem; }
+
+    .about-body { color: var(--muted); line-height: 1.8; }
+    .about-body p + p { margin-top: 1rem; }
+    .about-pull {
+      margin-top: 1.8rem; padding-left: 1.2rem;
+      border-left: 3px solid var(--accent);
+      font-family: 'DM Serif Display', serif; font-style: italic;
+      font-size: 1.15rem; color: var(--navy); line-height: 1.5;
+    }
+
+    /* ── SPECIALTIES ─────────────────────────────── */
+    .specialties { background: var(--navy); }
+    .specialties .section-title { color: var(--white); }
+    .specialties .section-body { color: rgba(255,255,255,0.6); }
+    .spec-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; margin-top: 3.5rem;
+      background: rgba(255,255,255,0.08);
+    }
+    .spec-card {
+      background: var(--navy); padding: 2.5rem 2rem;
+      position: relative; overflow: hidden;
+      transition: background 0.3s;
+    }
+    .spec-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 2px; background: var(--accent);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+    }
+    .spec-card:hover { background: var(--navy2); }
+    .spec-card:hover::after { transform: scaleX(1); }
+    .spec-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+    .spec-name {
+      font-family: 'Barlow', sans-serif; font-size: 1.25rem;
+      font-weight: 700; color: var(--white); text-transform: uppercase;
+      letter-spacing: 0.04em; margin-bottom: 0.75rem;
+    }
+    .spec-desc { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+    /* ── PROCESS ─────────────────────────────────── */
+    .process { background: var(--offwhite); }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3.5rem; }
+    .step { position: relative; }
+    .step::after {
+      content: '→';
+      position: absolute; top: 1.5rem; right: -1.2rem;
+      color: var(--accent); font-size: 1.2rem; font-weight: 600;
+    }
+    .step:last-child::after { display: none; }
+    .step-num {
+      font-family: 'Barlow', sans-serif; font-size: 3rem; font-weight: 800;
+      color: rgba(10,22,40,0.07); line-height: 1; margin-bottom: 0.5rem;
+    }
+    .step-title { font-weight: 600; font-size: 1rem; color: var(--navy); margin-bottom: 0.5rem; }
+    .step-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── PROJECTS ────────────────────────────────── */
+    .projects { background: var(--white); }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
+    .project-card { position: relative; overflow: hidden; cursor: pointer; }
+    .project-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform 0.5s; }
+    .project-card:hover img { transform: scale(1.04); }
+    .project-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,22,40,0.92) 0%, transparent 55%);
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem;
+    }
+    .proj-type { font-size: 0.63rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.3rem; }
+    .proj-name { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--white); text-transform: uppercase; }
+    .proj-loc { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 0.2rem; }
+
+    /* ── REVIEWS ─────────────────────────────────── */
+    .reviews { background: var(--cream); }
+    .reviews-summary {
+      display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;
+      background: var(--white); padding: 2rem 2.5rem;
+      margin-top: 3rem; box-shadow: 0 2px 12px rgba(10,22,40,0.06);
+      border-left: 4px solid var(--accent);
+    }
+    .reviews-big-score { text-align: center; }
+    .reviews-big-num {
+      font-family: 'Barlow', sans-serif; font-size: 4rem; font-weight: 800;
+      color: var(--navy); line-height: 1;
+    }
+    .reviews-big-stars { color: #f5a623; font-size: 1.4rem; letter-spacing: 0.1em; margin: 0.3rem 0; }
+    .reviews-big-count { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.1em; }
+    .reviews-bars { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 0.5rem; }
+    .bar-row { display: flex; align-items: center; gap: 0.75rem; font-size: 0.78rem; color: var(--muted); }
+    .bar-track { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .bar-fill { height: 100%; background: #f5a623; border-radius: 3px; }
+    .reviews-highlights { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .highlight-tag {
+      background: var(--cream); border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem; font-size: 0.72rem; font-weight: 500;
+      color: var(--navy); letter-spacing: 0.05em;
+    }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+    .review-card {
+      background: var(--white); padding: 2rem;
+      border-top: 3px solid transparent; transition: border-color 0.2s;
+      box-shadow: 0 2px 12px rgba(10,22,40,0.06);
+    }
+    .review-card:hover { border-color: var(--accent); }
+    .stars { color: #f5a623; font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .review-text {
+      font-family: 'DM Serif Display', serif; font-style: italic;
+      font-size: 0.95rem; color: var(--text); line-height: 1.7; margin-bottom: 1.5rem;
+    }
+    .reviewer { display: flex; align-items: center; gap: 0.75rem; }
+    .reviewer-av {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--navy); display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--accent);
+      flex-shrink: 0;
+    }
+    .reviewer-name { font-weight: 600; font-size: 0.85rem; color: var(--navy); }
+    .reviewer-info { font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
+
+    /* ── LOCATION ────────────────────────────────── */
+    .location { background: var(--white); }
+    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3.5rem; align-items: start; }
+    .loc-detail { display: flex; gap: 1rem; align-items: flex-start; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem; }
+    .loc-detail:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .loc-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .loc-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 0.3rem; }
+    .loc-val { font-size: 0.92rem; color: var(--text); }
+    .loc-val a { color: var(--text); text-decoration: none; }
+    .loc-val a:hover { color: var(--accent); }
+    .map-box { background: var(--cream); aspect-ratio: 4/3; overflow: hidden; }
+    .map-box iframe { width: 100%; height: 100%; border: none; filter: grayscale(0.3); }
+
+    /* ── CTA ─────────────────────────────────────── */
+    .cta {
+      background: var(--navy); padding: 5rem 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+      position: relative; overflow: hidden;
+    }
+    .cta::before {
+      content: 'HMGC';
+      position: absolute; right: 3%; top: 50%; transform: translateY(-50%);
+      font-family: 'Barlow', sans-serif; font-size: 12rem; font-weight: 800;
+      color: rgba(255,255,255,0.02); letter-spacing: -0.05em; pointer-events: none;
+    }
+    .cta-text .label { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .cta-text h2 { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--white); line-height: 1.1; }
+    .cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; position: relative; z-index: 1; }
+
+    .btn-wa {
+      background: #25D366; color: var(--white);
+      padding: 0.9rem 2rem; font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; transition: background 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-wa:hover { background: #1db954; }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    footer {
+      background: #060e1a; padding: 2.5rem 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      border-top: 1px solid rgba(74,159,212,0.1);
+    }
+    .foot-brand .name { font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 1rem; color: var(--white); letter-spacing: 0.1em; }
+    .foot-brand .sub { font-size: 0.65rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 0.2rem; }
+    .foot-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+    .foot-links { display: flex; gap: 1.5rem; list-style: none; }
+    .foot-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem; transition: color 0.2s; }
+    .foot-links a:hover { color: var(--accent); }
+
+    /* ── CONCEPT BANNER ──────────────────────────── */
+    .concept-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+      background: var(--accent); color: var(--white);
+      text-align: center; padding: 0.55rem 1rem;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 7rem; }
+      .hero::before { display: none; }
+      .hero-right { display: none; }
+      .about-grid, .location-grid { grid-template-columns: 1fr; }
+      .spec-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .cta { flex-direction: column; }
+    }
+    @media (max-width: 560px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- CONCEPT BANNER -->
+<div class="concept-banner">⚡ Concept Design by Ship It Studio — Content updated with your real details</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="box">HM</div>
+    <div class="name">HM General Contractors<span class="sub">Houston, Texas</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#specialties">Specialties</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-left">
+    <div class="hero-badge">Houston's #1 Medical Construction Firm</div>
+    <h1 class="hero-headline">
+      We Build<br>
+      <em>Spaces That</em><br>
+      Heal.
+    </h1>
+    <p class="hero-sub">
+      Since 2000, HM General Contractors has been Houston's trusted partner for medical, dental, optometry, and veterinary practice construction. From design to final walkthrough — we handle everything.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">See Our Work →</a>
+      <a href="#contact" class="btn-outline">Get a Free Quote</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-stack">
+      <img class="hero-img-main" src="https://images.unsplash.com/photo-1629909615957-be38d48fbbe4?w=800&auto=format&fit=crop&q=80" alt="Modern dental office" />
+      <div class="hero-img-badge">
+        <span class="num">25+</span>
+        <span class="lbl">Years of Excellence</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="stat-num">2000</span><span class="stat-lbl">Year Founded</span></div>
+  <div class="stat"><span class="stat-num">65+</span><span class="stat-lbl">Google Reviews</span></div>
+  <div class="stat"><span class="stat-num">4.7★</span><span class="stat-lbl">Average Rating</span></div>
+  <div class="stat"><span class="stat-num">500+</span><span class="stat-lbl">Offices Built</span></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1618498082410-b4aa22193b9e?w=700&auto=format&fit=crop&q=80" alt="Mike Newhouse" />
+      <div class="about-tag">
+        <div class="name">Mike Newhouse</div>
+        <div class="role">Owner & Principal</div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">Our Story</div>
+      <h2 class="section-title">25 Years Building<br>Houston's Healthcare</h2>
+      <div class="about-body">
+        <p>HM General Contractors was founded in 2000 with one mission: to build medical and dental offices that reflect the quality of care delivered inside them. Led by Mike Newhouse and Eric Martinez, our team has become the go-to design-build contractor for healthcare professionals across Houston, Austin, and San Antonio.</p>
+        <p>We specialize in the unique demands of medical construction — from HVAC requirements and infection control to ADA compliance and equipment coordination. Our clients trust us because we've done this hundreds of times, and we do it right.</p>
+        <p>Whether you're starting a new practice from scratch or renovating an existing space, we manage the entire process — drawings, permits, construction, and vendor coordination — so you can focus on your patients.</p>
+        <blockquote class="about-pull">
+          "Our pledge to you is the highest quality medical construction, on time and on budget — with the least drama possible."
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALTIES -->
+<section class="specialties" id="specialties">
+  <div class="eyebrow" style="color:var(--accent)">What We Build</div>
+  <h2 class="section-title" style="color:var(--white)">Built for Healthcare.<br>Designed for Patients.</h2>
+  <div class="spec-grid">
+    <div class="spec-card">
+      <span class="spec-icon">🦷</span>
+      <div class="spec-name">Dental Offices</div>
+      <p class="spec-desc">Full dental office buildouts from tenant finish to ground-up construction. We understand operatory layouts, equipment specs, sterilization rooms, and everything in between.</p>
+    </div>
+    <div class="spec-card">
+      <span class="spec-icon">🏥</span>
+      <div class="spec-name">Medical Practices</div>
+      <p class="spec-desc">Primary care, specialty clinics, and urgent care centers built to code. We handle all mechanical, plumbing, and electrical coordination for medical environments.</p>
+    </div>
+    <div class="spec-card">
+      <span class="spec-icon">👁️</span>
+      <div class="spec-name">Optometry Clinics</div>
+      <p class="spec-desc">Optometry and vision care offices designed with precision — exam rooms, optical dispensaries, and retail display areas that impress patients from day one.</p>
+    </div>
+    <div class="spec-card">
+      <span class="spec-icon">🐾</span>
+      <div class="spec-name">Veterinary Practices</div>
+      <p class="spec-desc">Veterinary clinics and animal hospitals built to the unique demands of animal care — surgical suites, kennels, exam rooms, and reception areas.</p>
+    </div>
+    <div class="spec-card">
+      <span class="spec-icon">🏗️</span>
+      <div class="spec-name">Commercial Buildouts</div>
+      <p class="spec-desc">Tenant improvements and commercial renovations across Houston. From office suites to retail spaces, we deliver quality commercial construction on time.</p>
+    </div>
+    <div class="spec-card">
+      <span class="spec-icon">📐</span>
+      <div class="spec-name">Design-Build</div>
+      <p class="spec-desc">One team from concept to completion. We handle architectural design, engineering, permitting, and construction — removing complexity from your project.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="eyebrow">How It Works</div>
+  <h2 class="section-title">Our Process</h2>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-title">Consultation</div>
+      <p class="step-desc">We meet with you to understand your vision, budget, timeline, and practice needs. No pressure, just planning.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-title">Design</div>
+      <p class="step-desc">Our team creates detailed architectural drawings tailored to your specialty, equipment, and workflow.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-title">Construction</div>
+      <p class="step-desc">We handle all permits, subcontractors, and on-site management. Regular updates keep you informed throughout.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-title">Handover</div>
+      <p class="step-desc">Final walkthrough, punch list completion, and we stay available after — until your first patient walks through the door.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="eyebrow">Portfolio</div>
+  <h2 class="section-title">Recent Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=700&auto=format&fit=crop&q=80" alt="Dental office" />
+      <div class="project-overlay">
+        <div class="proj-type">Dental Office</div>
+        <div class="proj-name">Cosmetic Dental Associates</div>
+        <div class="proj-loc">Houston, TX</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=700&auto=format&fit=crop&q=80" alt="Medical office" />
+      <div class="project-overlay">
+        <div class="proj-type">Optometry Clinic</div>
+        <div class="proj-name">Signature Eye Care — 8,000 SF</div>
+        <div class="proj-loc">Houston, TX</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=700&auto=format&fit=crop&q=80" alt="Dental renovation" />
+      <div class="project-overlay">
+        <div class="proj-type">Full Renovation</div>
+        <div class="proj-name">Dental Office — Baytown</div>
+        <div class="proj-loc">Baytown, TX</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=700&auto=format&fit=crop&q=80" alt="Veterinary clinic" />
+      <div class="project-overlay">
+        <div class="proj-type">Veterinary Practice</div>
+        <div class="proj-name">Animal Hospital Buildout</div>
+        <div class="proj-loc">Katy, TX</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=700&auto=format&fit=crop&q=80" alt="Medical facility" />
+      <div class="project-overlay">
+        <div class="proj-type">Medical Office</div>
+        <div class="proj-name">Specialty Clinic — Grangerland</div>
+        <div class="proj-loc">Grangerland, TX</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=700&auto=format&fit=crop&q=80" alt="Office buildout" />
+      <div class="project-overlay">
+        <div class="proj-type">Commercial Buildout</div>
+        <div class="proj-name">Medical Office — Covid Shutdown Build</div>
+        <div class="proj-loc">Houston, TX</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="eyebrow">Client Testimonials</div>
+  <h2 class="section-title">What Our Clients Say</h2>
+
+  <div class="reviews-summary">
+    <div class="reviews-big-score">
+      <div class="reviews-big-num">4.7</div>
+      <div class="reviews-big-stars">★★★★★</div>
+      <div class="reviews-big-count">Based on 65 Google Reviews</div>
+    </div>
+    <div class="reviews-bars">
+      <div class="bar-row"><span>5★</span><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div><span>57</span></div>
+      <div class="bar-row"><span>4★</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><span>5</span></div>
+      <div class="bar-row"><span>3★</span><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><span>2</span></div>
+      <div class="bar-row"><span>2★</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><span>1</span></div>
+      <div class="bar-row"><span>1★</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span>0</span></div>
+    </div>
+    <div>
+      <div style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:0.75rem;">Most Mentioned</div>
+      <div class="reviews-highlights">
+        <span class="highlight-tag">✓ Beautiful Office</span>
+        <span class="highlight-tag">✓ On Time</span>
+        <span class="highlight-tag">✓ Reliable Team</span>
+        <span class="highlight-tag">✓ Great Design</span>
+        <span class="highlight-tag">✓ Responsive Staff</span>
+        <span class="highlight-tag">✓ On Budget</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"HMGC has now built TWO offices for me — my 1,750 SF build-out lease 10 years ago, and now my own 8,000 SF building on my land with all planning and ground-up work. My office could not be more beautiful!"</p>
+      <div class="reviewer">
+        <div class="reviewer-av">LK</div>
+        <div>
+          <div class="reviewer-name">Laura Koehler</div>
+          <div class="reviewer-info">Optometrist · Houston, TX · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"We used HM General Contractors to build out our dental practice. I highly recommend them. The quality is excellent. We actually have several friends that have used them and they all love the design and overall quality."</p>
+      <div class="reviewer">
+        <div class="reviewer-av">JT</div>
+        <div>
+          <div class="reviewer-name">James Tejada</div>
+          <div class="reviewer-info">Dentist · Houston, TX · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"My office turned out amazing... and the build was during the first COVID shutdown! How they managed to complete the buildout on time I'll never know. The office is beautiful and my patients love it."</p>
+      <div class="reviewer">
+        <div class="reviewer-av">BR</div>
+        <div>
+          <div class="reviewer-name">Beth Robinson</div>
+          <div class="reviewer-info">Local Guide · Houston, TX · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Mike Newhouse and his staff did a great job on my Dental Office in Katy. Although our project was affected by Hurricane Harvey, Mike and his team stepped it up when we needed them most."</p>
+      <div class="reviewer">
+        <div class="reviewer-av">JM</div>
+        <div>
+          <div class="reviewer-name">Joe Mora</div>
+          <div class="reviewer-info">Dentist · Katy, TX · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"I knew from the moment I first sat down with Eric Martinez and Mike Newhouse that I was making the right choice. The office turned out absolutely beautifully, and we paid exactly what we were quoted."</p>
+      <div class="reviewer">
+        <div class="reviewer-av">M</div>
+        <div>
+          <div class="reviewer-name">Minh</div>
+          <div class="reviewer-info">Dental Practice Owner · Houston, TX · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"I had a great experience working with everyone at HM! They listened to my ideas, and were able to take my vision and make it a reality. From the very beginning, there was great communication throughout the whole process."</p>
+      <div class="reviewer">
+        <div class="reviewer-av">KL</div>
+        <div>
+          <div class="reviewer-name">Kathryn Linch</div>
+          <div class="reviewer-info">Practice Owner · Houston, TX · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Fantastic experience working with this general contractor. The crew was knowledgeable and very organized. They explained the process clearly and delivered excellent craftsmanship on time."</p>
+      <div class="reviewer">
+        <div class="reviewer-av">KC</div>
+        <div>
+          <div class="reviewer-name">Katherine Colby-Lycos</div>
+          <div class="reviewer-info">Client · Houston, TX · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Mike and his team are outstanding. I had a different contractor with my first office and it was a nightmare. I did not want to repeat that experience — HM made everything smooth from start to finish."</p>
+      <div class="reviewer">
+        <div class="reviewer-av">RS</div>
+        <div>
+          <div class="reviewer-name">Robert Studebaker</div>
+          <div class="reviewer-info">Practice Owner · Houston, TX · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"The Team at HM in charge of our Grangerland project is excellent! They worked with us through every step of the project and the results exceeded our expectations. Highly recommend."</p>
+      <div class="reviewer">
+        <div class="reviewer-av">CF</div>
+        <div>
+          <div class="reviewer-name">Carla Ferrada</div>
+          <div class="reviewer-info">Client · Grangerland, TX · Google Review</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div style="text-align:center; margin-top:2.5rem;">
+    <a href="https://www.google.com/maps/search/HM+General+Contractors+Houston" target="_blank" class="btn-primary" style="display:inline-flex;">
+      ⭐ View All 65 Reviews on Google
+    </a>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="contact">
+  <div class="eyebrow">Find Us</div>
+  <h2 class="section-title">Contact & Location</h2>
+  <div class="location-grid">
+    <div>
+      <div class="loc-detail">
+        <div class="loc-icon">📍</div>
+        <div>
+          <div class="loc-label">Address</div>
+          <div class="loc-val">1674 W Sam Houston Pkwy N<br>Houston, TX 77043, United States</div>
+        </div>
+      </div>
+      <div class="loc-detail">
+        <div class="loc-icon">📞</div>
+        <div>
+          <div class="loc-label">Phone</div>
+          <div class="loc-val"><a href="tel:+17139476548">+1 (713) 947-6548</a></div>
+        </div>
+      </div>
+      <div class="loc-detail">
+        <div class="loc-icon">🕐</div>
+        <div>
+          <div class="loc-label">Office Hours</div>
+          <div class="loc-val">Monday – Friday: 8:00 AM – 5:00 PM<br>Saturday – Sunday: Closed</div>
+        </div>
+      </div>
+      <div class="loc-detail">
+        <div class="loc-icon">📍</div>
+        <div>
+          <div class="loc-label">Service Areas</div>
+          <div class="loc-val">Houston · Austin · San Antonio · Katy · Baytown · The Woodlands</div>
+        </div>
+      </div>
+    </div>
+    <div class="map-box">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3463.8!2d-95.5658!3d29.7604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s1674+W+Sam+Houston+Pkwy+N%2C+Houston%2C+TX+77043!5e0!3m2!1sen!2sus!4v1"
+        allowfullscreen="" loading="lazy" title="HM General Contractors Location">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-text">
+    <div class="label">Ready to Build Your Practice?</div>
+    <h2>Let's Talk About<br>Your Project</h2>
+  </div>
+  <div class="cta-btns">
+    <a href="tel:+17139476548" class="btn-primary">📞 Call Us Now</a>
+    <a href="https://wa.me/17139476548?text=Hi%20HM%20General%20Contractors%2C%20I'd%20like%20to%20discuss%20a%20construction%20project." target="_blank" class="btn-wa">💬 WhatsApp Us</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand">
+    <div class="name">HM General Contractors</div>
+    <div class="sub">Houston's Medical Construction Experts Since 2000</div>
+  </div>
+  <ul class="foot-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#specialties">Specialties</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="foot-copy">© 2026 HM General Contractors Inc. Houston, TX</div>
+</footer>
+
+</body>
+</html>
